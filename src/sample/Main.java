@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import J
+
 
 public class Main extends Application {
 
@@ -18,6 +18,8 @@ public class Main extends Application {
 
         launch(args);
     }
+
+
     @Override
     public void start(Stage stage) throws Exception{
         //Apla fortwnei to SceneBuilder
@@ -30,6 +32,7 @@ public class Main extends Application {
         stage.setTitle("Tic Tac Toe ");
         stage.setWidth(600);
         stage.setHeight(500);
+        scene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
 
 
 
