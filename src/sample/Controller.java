@@ -80,6 +80,31 @@ public class Controller implements Initializable {
     //}
 
     public void checkCombination(){
+        //Xbuttons
+        if (buttons[0].getText()=="X" && buttons[1].getText()=="X" && buttons[2].getText()=="X") {
+            xWins(0,1,2);
+        }
+        if (buttons[3].getText()=="X" && buttons[4].getText()=="X" && buttons[5].getText()=="X") {
+            xWins(3,4,5);
+        }
+        if (buttons[6].getText()=="X" && buttons[7].getText()=="X" && buttons[8].getText()=="X") {
+            xWins(6,7,8);
+        }
+        if (buttons[0].getText()=="X" && buttons[3].getText()=="X" && buttons[6].getText()=="X") {
+            xWins(0,3,6);
+        }
+        if (buttons[1].getText()=="X" && buttons[4].getText()=="X" && buttons[7].getText()=="X") {
+            xWins(1,4,7);
+        }
+        if (buttons[2].getText()=="X" && buttons[5].getText()=="X" && buttons[8].getText()=="X") {
+            xWins(2,5,8);
+        }
+        if (buttons[0].getText()=="X" && buttons[4].getText()=="X" && buttons[8].getText()=="X") {
+            xWins(0,4,8);
+        }
+        if (buttons[2].getText()=="X" && buttons[4].getText()=="X" && buttons[6].getText()=="X") {
+            xWins(2,4,6);
+        }
 
     }
 
