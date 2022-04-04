@@ -1,14 +1,11 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -59,8 +56,7 @@ public class Controller implements Initializable {
 
     }
 
-
-    public void firstplayer(){
+    public void firstplayer(Button button){
 
         if (random.nextInt(2)==0){
             player1_turn = true;
@@ -74,13 +70,13 @@ public class Controller implements Initializable {
 
     }
 
-   // public void setupButton(Button button){
-      //  button.setOnMouseClicked(mouseEvent -> {firstplayer(button);
-          //  button.setDisable(true);});
-    //}
+    public void setupButton(Button button){
+        button.setOnMouseClicked(mouseEvent -> {firstplayer(button);
+           button.setDisable(true);});
+    }
 
     public void checkCombination(){
-        //Xbuttons
+        //xButtons
         if (buttons[0].getText()=="X" && buttons[1].getText()=="X" && buttons[2].getText()=="X") {
             xWins(0,1,2);
         }
@@ -106,6 +102,31 @@ public class Controller implements Initializable {
             xWins(2,4,6);
         }
 
+        //yButtons
+        if (buttons[0].getText()=="O" && buttons[1].getText()=="O" && buttons[2].getText()=="O") {
+            oWins(0,1,2);
+        }
+        if (buttons[3].getText()=="O" && buttons[4].getText()=="O" && buttons[5].getText()=="O") {
+            oWins(3,4,5);
+        }
+        if (buttons[6].getText()=="O" && buttons[7].getText()=="O" && buttons[8].getText()=="O") {
+            oWins(6,7,8);
+        }
+        if (buttons[0].getText()=="O" && buttons[3].getText()=="O" && buttons[6].getText()=="O") {
+            oWins(0,3,6);
+        }
+        if (buttons[1].getText()=="O" && buttons[4].getText()=="O" && buttons[7].getText()=="O") {
+            oWins(1,4,7);
+        }
+        if (buttons[2].getText()=="O" && buttons[5].getText()=="O" && buttons[8].getText()=="O") {
+            oWins(2,5,8);
+        }
+        if (buttons[0].getText()=="O" && buttons[4].getText()=="O" && buttons[8].getText()=="O") {
+            oWins(0,4,8);
+        }
+        if (buttons[2].getText()=="O" && buttons[4].getText()=="O" && buttons[6].getText()=="O") {
+            oWins(2,4,6);
+        }
     }
 
     public void xWins(int a, int b, int c){
