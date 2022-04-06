@@ -18,15 +18,12 @@ import java.util.ResourceBundle;
 
 public  class Controller implements ActionListener {
 
-    Random random = new Random();
-    boolean player1_turn;
+    
 
    // @FXML
     //private Text winnerText;
 
-    @FXML
-    private Text firstPickText;
-
+   //TicTacToeButtons
     @FXML
     private Button button1,button2,button3,button4,button5,button6,button7,button8,button9;
 
@@ -36,6 +33,12 @@ public  class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
+    Random random = new Random();
+    boolean player1_turn;
+    @FXML
+    private Text firstPickText;
+
 
     public void firstpick(){
 
