@@ -3,60 +3,41 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public  class Controller implements ActionListener {
 
     Random random = new Random();
     boolean player1_turn;
 
-    @FXML
-    private Text winnerText;
+   // @FXML
+    //private Text winnerText;
 
     @FXML
     private Text firstPickText;
 
     @FXML
-    private Button button1;
+    private Button button1,button2,button3,button4,button5,button6,button7,button8,button9;
 
-    @FXML
-    private Button button2;
+    Button [] buttons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9}; ;
 
-    @FXML
-    private Button button3;
-
-    @FXML
-    private Button button4;
-
-    @FXML
-    private Button button5;
-
-    @FXML
-    private Button button6;
-
-    @FXML
-    private Button button7;
-
-    @FXML
-    private Button button8;
-
-    @FXML
-    private Button button9;
-
-    Button [] buttons ;
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        buttons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9};
-
-
+    public void actionPerformed(ActionEvent e) {
 
     }
 
-    public void firstplayer(Button button){
+    public void firstpick(){
 
         if (random.nextInt(2)==0){
             player1_turn = true;
@@ -64,15 +45,17 @@ public class Controller implements Initializable {
         }
         else{
             player1_turn=false;
+            //firstPickText = new Text("O turn");
             firstPickText.setText("O turn");
+
         }
 
 
     }
 
     public void setupButton(Button button){
-        button.setOnMouseClicked(mouseEvent -> {firstplayer(button);
-           button.setDisable(true);});
+        //button.setOnMouseClicked(mouseEvent -> {firstpick(button);
+          // button.setDisable(true);});
     }
 
     public void checkCombination(){
@@ -129,17 +112,38 @@ public class Controller implements Initializable {
         }
     }
 
-    public void xWins(int a, int b, int c){
+    //Score and win things
+    @FXML
+    Text scoreX = new Text();
+    @FXML
+    Text scoreO = new Text();
 
+    int counterX=0,counterO=0;
+
+    public void xWins(int a, int b, int c){
+        //buttons[a].setBackground(Color.GREEN);
+        //buttons[b].setBackground(Color.GREEN);
+        //buttons[c].setBackground(Color.GREEN);
+        counterX += 1;
+        score(counterX,counterO);
     }
 
     public void oWins(int a, int b, int c){
+        //buttons[a].setBackground(Color.GREEN);
+        //buttons[b].setBackground(Color.GREEN);
+        //buttons[c].setBackground(Color.GREEN);
+        counterO +=1;
+        score(counterX,counterO);
+    }
+
+    public void score(Integer a,Integer b){
+            if (a<=5 || b<=5){
+                scoreX.setText( a.toString().getClass().getName());
+                scoreO.setText( b.toString().getClass().getName());
+            }
 
     }
 
-    public void score(){
-
-    }
 
 
 }
