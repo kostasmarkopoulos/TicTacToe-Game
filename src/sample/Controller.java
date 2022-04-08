@@ -3,6 +3,8 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import java.awt.*;
@@ -12,7 +14,6 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -37,10 +38,10 @@ public  class Controller implements ActionListener {
     Random random = new Random();
     boolean player1_turn;
     @FXML
-    private Text firstPickText;
+    private Label firstPickText;
 
-
-    public void firstpick(){
+    @FXML
+    public void firstpick(MouseEvent event){
 
         if (random.nextInt(2)==0){
             player1_turn = true;
@@ -56,9 +57,31 @@ public  class Controller implements ActionListener {
 
     }
 
-    public void setupButton(Button button){
-        //button.setOnMouseClicked(mouseEvent -> {firstpick(button);
-          // button.setDisable(true);});
+
+    @FXML
+    public void setupButton(javafx.event.ActionEvent e){
+        for(int i=0;i<9;i++) {
+            if(e.getSource()==buttons[i]) {
+                if(player1_turn) {
+                    if(buttons[i].getText()=="") {
+                        //buttons[i].setForeground(new Color(255,0,0));
+                        buttons[i].setText("X");
+                        player1_turn=false;
+                        firstPickText.setText("O turn");
+                        checkCombination();
+                    }
+                }
+                else {
+                    if(buttons[i].getText()=="") {
+                        //buttons[i].setForeground(new Color(0,0,255));
+                        buttons[i].setText("O");
+                        player1_turn=true;
+                        firstPickText.setText("X turn");
+                        checkCombination();
+                    }
+                }
+            }
+        }
     }
 
     public void checkCombination(){
@@ -117,11 +140,12 @@ public  class Controller implements ActionListener {
 
     //Score and win things
     @FXML
-    Text scoreX = new Text();
+    Label scoreX = new Label();
     @FXML
-    Text scoreO = new Text();
+    Label scoreO = new Label();
 
-    int counterX=0,counterO=0;
+    Integer counterX=0,counterO=0;
+
 
     public void xWins(int a, int b, int c){
         //buttons[a].setBackground(Color.GREEN);
@@ -145,6 +169,12 @@ public  class Controller implements ActionListener {
                 scoreO.setText( b.toString().getClass().getName());
             }
 
+    }
+
+    public void resetButton(Button button){
+        button.setDisable(false);
+        button.setText("");
+        score(counterX,counterO);
     }
 
 
