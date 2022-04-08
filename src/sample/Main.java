@@ -23,7 +23,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         //Apla fortwnei to SceneBuilder
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SceneFront.fxml"));
         //Group root2 = new Group(); <-- Auto se periptwsh pou den dhmiorgw stage mesa sthn start
         Scene scene = new Scene(root);
 

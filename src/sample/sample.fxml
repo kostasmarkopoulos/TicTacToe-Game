@@ -21,29 +21,29 @@
             <Button fx:id="button9" mnemonicParsing="false" onAction="#setupButton" prefHeight="90.0" prefWidth="120.0" textAlignment="CENTER" />
          </children>
       </FlowPane>
-      <Label layoutX="108.0" layoutY="356.0" text="X:" textFill="#0949a8">
+      <Label layoutX="108.0" layoutY="356.0" text="X:" textFill="#c31c1c">
          <font>
             <Font size="41.0" />
          </font>
       </Label>
-      <Label layoutX="405.0" layoutY="356.0" text="O:" textFill="#0949a8">
+      <Label layoutX="405.0" layoutY="356.0" text="O:" textFill="#145a97">
          <font>
             <Font size="41.0" />
          </font>
       </Label>
       <Button layoutX="268.0" layoutY="390.0" mnemonicParsing="false" text="Reset" />
-      <Button layoutX="254.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#firstpick" text="Start Game" />
-      <Label fx:id="scoreX" layoutX="142.0" layoutY="356.0" text="0" textFill="#0949a8">
+      <Button layoutX="261.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#firstpick" text="Get Start" />
+      <Label fx:id="scoreX" layoutX="142.0" layoutY="356.0" text="0" textFill="#c31c1c">
          <font>
             <Font size="41.0" />
          </font>
       </Label>
-      <Label fx:id="scoreO" layoutX="445.0" layoutY="356.0" text="0" textFill="#0949a8">
+      <Label fx:id="scoreO" layoutX="445.0" layoutY="356.0" text="0" textFill="#145a97">
          <font>
             <Font size="41.0" />
          </font>
       </Label>
-      <Label fx:id="firstPickText" layoutX="118.0" layoutY="5.0" prefHeight="65.0" prefWidth="365.0" text="TicTacToe Game" textFill="#0949a8">
+      <Label fx:id="firstPickText" layoutX="207.0" prefHeight="65.0" prefWidth="170.0" textFill="#c31c1c">
          <font>
             <Font size="44.0" />
          </font>
