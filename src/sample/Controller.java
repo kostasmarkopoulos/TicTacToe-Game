@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public  class Controller implements ActionListener {
+public  class Controller {
 
     
 
@@ -31,33 +31,7 @@ public  class Controller implements ActionListener {
     Button [] buttons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9};
 
 
-    @Override
-   public void actionPerformed(ActionEvent e) {
-       /* for(int i=0;i<9;i++) {
-            System.out.println("popopo");
-            if(e.getActionCommand().equals(buttons[i])) {
-                System.out.println("Mpike");
-                if(player1_turn) {
-                    if(buttons[i].getText()=="") {
-                        //buttons[i].setForeground(new Color(255,0,0));
-                        buttons[i].setText("X");
-                        player1_turn=false;
-                        firstPickText.setText("O turn");
-                        checkCombination();
-                    }
-                }
-                else {
-                    if(buttons[i].getText()=="") {
-                        //buttons[i].setForeground(new Color(0,0,255));
-                        buttons[i].setText("O");
-                        player1_turn=true;
-                        firstPickText.setText("X turn");
-                        checkCombination();
-                    }
-                }
-            }
-        }*/
-    }
+
 
     Random random = new Random();
     boolean player1_turn;
@@ -73,7 +47,6 @@ public  class Controller implements ActionListener {
         }
         else{
             player1_turn=false;
-            //firstPickText = new Text("O turn");
             firstPickText.setText("O turn");
 
         }
@@ -176,17 +149,17 @@ public  class Controller implements ActionListener {
 
 
     public void xWins(int a, int b, int c){
-        //buttons[a].setBackground(Color.GREEN);
-        //buttons[b].setBackground(Color.GREEN);
-        //buttons[c].setBackground(Color.GREEN);
+        buttons[a].setStyle("-fx-background-color: #7FFF00 ");
+        buttons[b].setStyle("-fx-background-color: #7FFF00 ");
+        buttons[c].setStyle("-fx-background-color: #7FFF00 ");
         counterX += 1;
         score(counterX,counterO);
     }
 
     public void oWins(int a, int b, int c){
-        //buttons[a].setBackground(Color.GREEN);
-        //buttons[b].setBackground(Color.GREEN);
-        //buttons[c].setBackground(Color.GREEN);
+        buttons[a].setStyle("-fx-background-color: #7FFF00 ");
+        buttons[b].setStyle("-fx-background-color: #7FFF00 ");
+        buttons[c].setStyle("-fx-background-color: #7FFF00 ");
         counterO +=1;
         score(counterX,counterO);
     }
@@ -202,6 +175,7 @@ public  class Controller implements ActionListener {
     public void resetButton(Button button){
         button.setDisable(false);
         button.setText("");
+        firstPickText.setText("");
         score(counterX,counterO);
     }
 
