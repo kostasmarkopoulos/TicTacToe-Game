@@ -57,31 +57,34 @@ public  class Controller {
 
     @FXML
     public void setupButton(javafx.event.ActionEvent e){
-        /*for(int i=0;i<9;i++) {
+        for(int i=0;i<9;i++) {
             buttons[i] = new Button();
             System.out.println(buttons[i]);
-        }*/
+        }
+        String buttonLock = event.getPickResult().getIntersectedNode().getId();
+        String selectedBottunId = buttonLock.replace("[//D]","");
+        int id = Integer.parseInt(selectedBottunId);
         for(int i=0;i<9;i++) {
-            //if(e.getSource().equals(buttons[i].getText())) {
-           if(player1_turn) {
-                   // if(buttons[i].getText()==null&&buttons[i]==buttons[idx]) {
-                        //buttons[i].setForeground(new Color(255,0,0));
-                        buttons[i].setText("X");
-                        player1_turn=false;
-                        firstPickText.setText("O turn");
-                        //checkCombination();
-                   // }
-           }
+            System.out.println("paas");
+            if(player1_turn) {
+                if(buttons[id]==buttons[i]) {
+                    //buttons[i].setForeground(new Color(255,0,0));
+                    buttons[i].setText("X");
+                    player1_turn=false;
+                    firstPickText.setText("O turn");
+                    checkCombination();
+                }
                 else {
-                    if(buttons[i].getText()=="") {
+                    if(buttons[id]==buttons[i]) {
                         //buttons[i].setForeground(new Color(0,0,255));
                         buttons[i].setText("O");
                         player1_turn=true;
                         firstPickText.setText("X turn");
-                        //checkCombination();
+                        checkCombination();
                     }
                 }
-           // }
+            }
+            // }
         }
     }
 
